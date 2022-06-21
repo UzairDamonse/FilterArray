@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <!-- Button trigger modal -->
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+    >
+      Add product
+    </button>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form onsubmit="event.preventDefault(); addItems()">
+              <input type="text" id="title" placeholder="Title" name="title" />
+              <select name="category" id="category" placeholder="Category">
+                <option value="men's clothing">Men's clothing</option>
+                <option value="women's clothing">Women's clothing</option>
+                <option value="electronics">Electronics</option>
+                <option value="jewelery">Jewelery</option>
+              </select>
+              <input type="text" id="image" placeholder="Image" name="image" />
+              <input type="text" id="price" placeholder="Price" name="price" />
+              <input
+                type="number"
+                id="rating"
+                placeholder="Rating (/10)"
+                name="rating"
+              />
+              <textarea name="description" id="description"></textarea>
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category -->
+
+    <div>
+      <select
+        onchange="filterCategory(event)"
+        name="condition"
+        id="condition"
+        placeholder="How to filter"
+      >
+        <option value="all">All</option>
+        <option value="men's clothing">Men's clothing</option>
+        <option value="women's clothing">Women's clothing</option>
+        <option value="electronics">Electronics</option>
+        <option value="jewelery">Jewelery</option>
+      </select>
+    </div>
+
+    <div class="container">
+      <div id="products" class="row d-flex justify-content-center"></div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
