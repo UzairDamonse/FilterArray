@@ -72,11 +72,12 @@
     <!-- Category -->
 
     <div>
+      Sort by category
       <select
         onchange="filterCategory(event)"
         name="condition"
         id="condition"
-        placeholder="How to filter"
+        placeholder="Filter by category"
       >
         <option value="all">All</option>
         <option value="men's clothing">Men's clothing</option>
@@ -84,6 +85,59 @@
         <option value="electronics">Electronics</option>
         <option value="jewelery">Jewelery</option>
       </select>
+    </div>
+
+    <!-- Price -->
+
+    <div>
+      Sort by price
+      <select
+        onchange="filterPrice(event)"
+        name="condition"
+        id="condition"
+        placeholder="Filter by price"
+      >
+        <option value="none">None</option>
+        <option value="priceAcsending">Price ascsending</option>
+        <option value="priceDescsending">Price descsending</option>
+      </select>
+    </div>
+
+    <!-- Rating -->
+
+    <div>
+      Sort by rating
+      <select
+        onchange="filterRating(event)"
+        name="condition"
+        id="condition"
+        placeholder="Filter by price"
+      >
+        <option value="none">None</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </div>
+
+    <!-- Title -->
+
+    <div>
+      Search by title
+      <input type="text" oninput="filterTitle(event)" placeholder="eg. ring" />
+    </div>
+
+    <!-- Description -->
+
+    <div>
+      Search by description
+      <input
+        type="text"
+        oninput="filterDescription(event)"
+        placeholder="eg. ring"
+      />
     </div>
 
     <div class="container">

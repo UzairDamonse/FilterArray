@@ -17,8 +17,10 @@ function showItems(products) {
 
 
     <div class="col-md-12 d-flex justify-content-center m-3">
-        <div id="Products" class='w-75'>
-        <img class='w-50 justify-content-center' src="${product.image}" />
+        <div id="Products" class='w-50'>
+        <div class='d-flex justify-content-center'>
+        <img class='w-50 ' src="${product.image}" />
+        </div>
         <h2>${product.title}</h2>
         <h4>${product.description}</h4>
         <p>Price: R${product.price}</p>
@@ -51,6 +53,48 @@ const filterCategory = (e) => {
     return showItems(items);
   }
 
-  const filtered = items.filter((item) => item.category === category);
-  return showItems(filtered);
+  const categoryFiltered = items.filter((item) => item.category === category);
+  return showItems(categoryFiltered);
+};
+
+const filterPrice = (e) => {
+  const Price = e.target.value;
+
+  const priceFiltered = items.sort((a, b) => a.price - b.price);
+
+  if (Price === "priceAcsending") {
+    showItems(priceFiltered);
+  } else if (Price === "priceDescsending") {
+    showItems(priceFiltered.reverse());
+  } else {
+    return showItems(items);
+  }
+};
+
+const filterRating = (e) => {
+  const Rating = e.target.value;
+
+  if (Rating === "none") {
+    return showItems(items);
+  }
+  const ratingFiltered = items.filter(
+    (item) => item.rating.rate >= parseInt(Rating)
+  );
+  return showItems(ratingFiltered);
+};
+
+const filterTitle = (e) => {
+  const Title = e.target.value;
+  const filteredItems = items.filter((item) =>
+    item.title.toLowerCase().includes(Title.toLowerCase())
+  );
+  return showItems(filteredItems);
+};
+
+const filterDescription = (e) => {
+  const Description = e.target.value;
+  const filteredDescription = items.filter((item) =>
+    item.description.toLowerCase().includes(Description.toLowerCase())
+  );
+  return showItems(filteredDescription);
 };
